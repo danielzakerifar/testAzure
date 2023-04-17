@@ -13,6 +13,10 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
+- task: CopyFiles@2
+  inputs:
+    Contents: '**/*.war'
+    TargetFolder: '$(build.artifactstagingdirectory)'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
